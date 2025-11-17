@@ -1,0 +1,9 @@
+name: code-review
+description: Review GitHub PR with Linear issue specification and post threaded feedback
+version: 1.0.0
+author: Your Team
+tags:
+  - code-review
+  - github
+  - linear
+  - quality-assurance
