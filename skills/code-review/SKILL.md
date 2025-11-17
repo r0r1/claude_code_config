@@ -1,8 +1,9 @@
 ---
-argument-hint: [PULL_REQUEST_URL_OR_NUMBER] [LINEAR_ISSUE_ID]
+name: code-review
+description: Review GitHub PR with Linear issue specification and post threaded feedback to GitHub
 ---
 
-# Review GitHub PR with Linear Issue Specification
+# Code Review - GitHub PR with Linear Integration
 
 You will review a GitHub Pull Request in the context of a Linear issue, performing a comprehensive code review and posting findings as threaded discussions on GitHub.
 

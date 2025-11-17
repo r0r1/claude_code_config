@@ -12,12 +12,10 @@ claude_code_config/
 │   └── fullstack-code-reviewer.md    # Expert code review agent for Rails/Next.js
 ├── commands/
 │   └── code-review.md                 # GitHub PR review command (legacy)
-├── .claude/
-│   └── skills/
-│       └── code-review/               # Shareable code review skill
-│           ├── skill.yml              # Skill metadata
-│           ├── prompt.md              # Review workflow instructions
-│           └── README.md              # Skill documentation
+├── skills/
+│   └── code-review/                   # Shareable code review skill
+│       ├── SKILL.md                   # Skill instructions with YAML frontmatter
+│       └── README.md                  # Skill documentation
 └── README.md                          # This file
 ```
 
@@ -50,7 +48,7 @@ Comprehensive GitHub PR review skill with Linear integration.
 - Posts inline review comments with severity categorization
 - Comprehensive reporting with cost estimates
 
-**Location**: `.claude/skills/code-review/`
+**Location**: `skills/code-review/`
 
 **Usage**:
 ```bash
@@ -112,8 +110,10 @@ Team members can copy specific files to their local Claude Code configuration:
 
 **For the Code Review Skill**:
 ```bash
-# Copy to your local .claude directory
-cp -r .claude/skills/code-review ~/.claude/skills/
+# Copy to your project or personal skills directory
+cp -r skills/code-review <your-project>/skills/
+# OR to personal skills directory
+cp -r skills/code-review ~/.claude/skills/
 ```
 
 **For the Fullstack Code Reviewer Agent**:
@@ -195,7 +195,7 @@ The code-review skill requires these MCP servers:
 
 ### Modify the Code Review Workflow
 
-Edit `.claude/skills/code-review/prompt.md` to customize:
+Edit `skills/code-review/SKILL.md` to customize:
 - Review criteria
 - Comment format
 - Severity levels
@@ -211,12 +211,19 @@ Edit `agents/fullstack-code-reviewer.md` to adjust:
 
 ### Add New Skills
 
-Create new skills in `.claude/skills/<skill-name>/`:
+Create new skills in `skills/<skill-name>/`:
 ```
 <skill-name>/
-├── skill.yml      # Metadata
-├── prompt.md      # Instructions
-└── README.md      # Documentation
+├── SKILL.md       # Instructions with YAML frontmatter (required)
+└── README.md      # Documentation (optional)
+```
+
+The `SKILL.md` file must have this frontmatter:
+```yaml
+---
+name: your-skill-name
+description: Brief description of what this skill does
+---
 ```
 
 ## Troubleshooting
@@ -299,7 +306,7 @@ This configuration is for internal team use. Customize and share as needed withi
 
 For issues or questions:
 1. Check the troubleshooting section above
-2. Review the skill-specific README: `.claude/skills/code-review/README.md`
+2. Review the skill-specific README: `skills/code-review/README.md`
 3. Consult [Claude Code Documentation](https://docs.claude.com/en/docs/claude-code)
 4. Ask your team lead or DevOps for MCP server configuration help
 
